@@ -6,7 +6,7 @@ BUILD=20240727
 PASS=$(openssl rand -base64 32 | sha256sum | base64 | head -c 32 | tr '[:upper:]' '[:lower:]')
 DBPASS=$(openssl rand -base64 24 | sha256sum | base64 | head -c 32 | tr '[:upper:]' '[:lower:]')
 SERVERID=$(openssl rand -base64 12 | sha256sum | base64 | head -c 32 | tr '[:upper:]' '[:lower:]')
-REPO=yolanmees/Spikster
+REPO=script-php/Spikster
 BRANCH=master
 ADMIN_EMAIL="your_admin_email@example.com"
 USE_LOCAL_IP=false
@@ -717,6 +717,14 @@ if [ "$nginx" = "yes" ]; then
 fi
 log_message "Firewall configured"
 
+
+
+
+
+
+
+
+
 # Panel Installation
 if [ "$nginx" = "yes" ]; then
     clear
@@ -738,7 +746,7 @@ EOF
     rm -rf /var/www/html
 
     # Clone the repository and log errors if any
-    cd /var/www && git clone https://github.com/yolanmees/Spikster.git html || {
+    cd /var/www && git clone https://github.com/script-php/Spikster.git html || {
         log_message "Failed to clone the repository"
         exit 1
     }
